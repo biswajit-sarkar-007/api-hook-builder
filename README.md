@@ -4,7 +4,7 @@
 
 Just paste your endpoint URL and instantly receive typed code ready to be pasted into your project—saving you hours of writing boilerplate code.
 
-![alt text](public/demo.mp4)
+ 
 
 ---
 
