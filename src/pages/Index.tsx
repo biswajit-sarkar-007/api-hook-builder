@@ -147,7 +147,7 @@ const Index = () => {
           </div>
 
           <a
-            href="https://github.com"
+            href="https://github.com/biswajit-sarkar-007/api-hook-builder"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
