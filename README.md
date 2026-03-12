@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# API Hook Builder (api-hook-gen)
 
-## Project info
+**API Hook Builder** is a blazing-fast, client-side tool designed to instantly generate production-ready React hooks, fetch functions, and comprehensive TypeScript interfaces from any JSON API endpoint. 
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Just paste your endpoint URL and instantly receive typed code ready to be pasted into your project—saving you hours of writing boilerplate code.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- **Instant Generation:** No sign-up, no CLI configuration. Paste the URL, hit generate, and copy the code.
+- **Type-Safe Output:** The inference engine fetches the response, recursively walks through every key, and builds full TypeScript interfaces (including nested objects and arrays).
+- **Production-Ready Code:** Outputs a generic `fetch` wrapper and a custom **TanStack (React) Query** hook ready for immediate use.
+- **100% Client-Side:** No data is stored or proxied to a server. The API fetch runs directly from your browser.
+- **Copy-Paste Ready:** One-click copy for the entire generated code block.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🏗 Architecture
 
-Changes made via Lovable will be committed automatically to this repo.
+The application is built with a pure client-side architecture to ensure speed and data privacy:
 
-**Use your preferred IDE**
+1. **User Input (`EndpointForm`)**: The user provides a REST API endpoint (must support CORS for browser fetching).
+2. **Inference Engine (`lib/codeGenerator`)**: The core engine fetches the JSON response from the provided URL, parses the payload, and infers the data schema recursively.
+3. **Code Generation**: The inferred schema is mapped to TypeScript interfaces. The engine then builds an asynchronous fetch function and a React Query hook tailored to the types.
+4. **Display (`CodeOutput`)**: The generated output is formatted and displayed with syntax highlighting for the user to copy.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This project is built using modern web development standards and UI libraries:
 
-Follow these steps:
+- **Frontend Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/) (Built on top of Radix UI primitives)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **State/Data Management (for generated code):** [TanStack Query](https://tanstack.com/query/latest)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🏃 Getting Started (Local Development)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+To run this project locally, you'll need [Node.js](https://nodejs.org/) installed on your machine.
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/biswajit-sarkar-007/api-hook-builder.git
+   cd api-hook-builder
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-**Edit a file directly in GitHub**
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+4. **Open in browser:**
+   Open `http://localhost:5173` in your browser to see the app running.
 
-**Use GitHub Codespaces**
+## 🤝 How to Contribute
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Contributions, issues, and feature requests are always welcome! We want to make API Hook Builder the best tool for frontend engineers.
 
-## What technologies are used for this project?
+1. **Fork the repository** on GitHub.
+2. **Clone your fork** locally:
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/api-hook-builder.git
+   ```
+3. **Create a new branch** for your feature or bugfix:
+   ```bash
+   git checkout -b feature/amazing-new-feature
+   ```
+4. **Make your changes** and commit them with descriptive messages:
+   ```bash
+   git commit -m "feat: add support for axios generation"
+   ```
+5. **Push your branch** to your fork:
+   ```bash
+   git push origin feature/amazing-new-feature
+   ```
+6. **Open a Pull Request** against the `main` branch of the original repository.
 
-This project is built with:
+### Development Guidelines
+- Ensure your code follows the existing style (TypeScript strict mode).
+- Run `npm run lint` to check for formatting or linting errors.
+- Test the generator thoroughly if you are modifying the core `codeGenerator` logic to ensure nested arrays and objects still correctly infer types.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*Built for frontend engineers who value their time.*
